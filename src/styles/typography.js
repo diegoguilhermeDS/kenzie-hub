@@ -21,6 +21,10 @@ export const StyledText = styled(BaseText)`
         return css`
           font-size: var(--font-size-4);
         `;
+      case "5":
+        return css`
+          font-size: 9px;
+        `;
       default:
         return css`
           font-size: var(--font-size-2);
