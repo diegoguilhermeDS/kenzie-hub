@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const SpinnerAnimation = keyframes`
   0% {
@@ -11,8 +11,8 @@ const SpinnerAnimation = keyframes`
 
 export const StyledButtonPrimary = styled.button`
   width: 100%;
-  height: 48px;
-  padding: 0 22px;
+  height: 3rem;
+  padding: 0 1.375;
 
   background-color: var(--color-primary);
   border: 1.2182px solid var(--color-primary);

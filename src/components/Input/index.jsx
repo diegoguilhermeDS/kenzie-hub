@@ -1,10 +1,10 @@
-import React from 'react'
-import { StyledInput } from './style'
+import React from "react";
+import { StyledInput } from "./style";
 
-const Input = ({type, placeholder, register, id}) => {
+const Input = ({ type, placeholder, register, id }) => {
   return (
-    <StyledInput type={type} placeholder={placeholder} {...register} id={id}/>
-  )
-}
+    <StyledInput type={type} placeholder={placeholder} {...register} id={id} />
+  );
+};
 
-export default Input
+export default Input;

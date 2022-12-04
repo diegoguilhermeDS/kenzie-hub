@@ -58,24 +58,22 @@ const Form = ({ type }) => {
 
   const onSubmitRegister = async (data) => {
     try {
-      delete data.ConfirmPassword
+      delete data.ConfirmPassword;
       setLoading(true);
       const response = await api.post("/users", data);
-      console.log(response)
+      console.log(response);
       if (response.status === 201) {
         notify("Cadastro feito com sucesso!", "sucess");
         setTimeout(() => {
           navigate("/login");
         }, 3500);
       }
-
     } catch (error) {
       if (error.response.status === 404) {
-        notify("Erro no servidor!");  
+        notify("Erro no servidor!");
       } else {
         notify("E-mail já existente");
       }
-      
     } finally {
       setLoading(false);
     }
@@ -228,10 +226,10 @@ const Form = ({ type }) => {
               <MessageError children={errors.contact.message} />
             )}
           </div>
-          <Select register={register}/>
+          <Select register={register} />
           {errors.course_module && (
-              <MessageError children={errors.course_module.message} />
-            )}
+            <MessageError children={errors.course_module.message} />
+          )}
           <Button
             children={!loading ? "Cadastrar" : <FaSpinner />}
             disabled={!isDirty || !isValid}

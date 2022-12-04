@@ -23,7 +23,7 @@ export const StyledText = styled(BaseText)`
         `;
       case "5":
         return css`
-          font-size: 9px;
+          font-size: .5625rem;
         `;
       default:
         return css`
@@ -37,7 +37,7 @@ export const StyledText = styled(BaseText)`
       return css`
         color: var(--color-grey-1);
       `;
-    }  else {
+    } else {
       return css`
         color: var(--color-grey-0);
       `;

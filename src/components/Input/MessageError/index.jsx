@@ -1,10 +1,8 @@
-import React from 'react'
-import { StyleMessageError } from './style'
+import React from "react";
+import { StyleMessageError } from "./style";
 
-const MessageError = ({children}) => {
-  return (
-    <StyleMessageError>{children}</StyleMessageError>
-  )
-}
+const MessageError = ({ children }) => {
+  return <StyleMessageError>{children}</StyleMessageError>;
+};
 
-export default MessageError
+export default MessageError;

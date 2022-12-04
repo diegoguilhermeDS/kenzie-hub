@@ -40,12 +40,12 @@ export const GlobalStyle = createGlobalStyle`
         
         --font-size-1: 1.125rem;
         --font-size-2: 1rem;
-        --font-size-3: 0.875rem;
-        --font-size-4: 0.75rem;
+        --font-size-3: .875rem;
+        --font-size-4: .75rem;
 
-        --gap-1: 22px;
+        --gap-1: 1.375rem;
 
-        --radius-1: 4px;
+        --radius-1: .25rem;
 
         --toastify-color-dark: #343B41;
         --toastify-color-success: #3FE864;
@@ -58,10 +58,10 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     ::-webkit-scrollbar {
-        width: 0.25rem;
+        width: .25rem;
 
         @media (min-width: 1024px) {
-            width: 0.375rem;
+            width: .375rem;
         }
     }
 

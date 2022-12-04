@@ -5,7 +5,10 @@ export const RegisterSchema = yup.object().shape({
     .string()
     .required("O campo Nome é obrigatório")
     .min(3, "O nome deve ter no minímo 3 letras"),
-  email: yup.string().required("O campo e-mail é obrigatório").email("E-mail inválido"),
+  email: yup
+    .string()
+    .required("O campo e-mail é obrigatório")
+    .email("E-mail inválido"),
   password: yup
     .string()
     .required("O campo senha é obrigatório")
@@ -24,7 +27,9 @@ export const RegisterSchema = yup.object().shape({
       [yup.ref("password"), null],
       "digite exatamente a mesma senha para confirmar"
     ),
-    bio: yup.string().required("O campo bio é obrigatório"),
-    contact: yup.string().required("o campo contato é obrigatório"),
-    course_module: yup.string().required("O campo selecionar módulo é obrigatório"),
+  bio: yup.string().required("O campo bio é obrigatório"),
+  contact: yup.string().required("o campo contato é obrigatório"),
+  course_module: yup
+    .string()
+    .required("O campo selecionar módulo é obrigatório"),
 });

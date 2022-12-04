@@ -8,7 +8,7 @@ const Login = () => {
     <>
       <StyledContainerForm>
         <Logo />
-        <Form type="login"/>
+        <Form type="login" />
       </StyledContainerForm>
     </>
   );

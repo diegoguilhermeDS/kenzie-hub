@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const StyledContainerForm = styled.main`
   display: flex;
@@ -10,15 +10,15 @@ export const StyledContainerForm = styled.main`
   width: 100%;
   min-height: 100vh;
 
-  padding: 48px 12px;
-`
+  padding: 3rem .75rem;
+`;
 
 export const StyledContainer = styled.div`
   margin: 0 auto;
-  max-width: 355px;
+  max-width: 22.1875rem;
   width: 100%;
-  @media (min-width: 700px) {
-    padding: 0 10px;
-    max-width: 1200px;
+  @media (min-width: 43.75rem) {
+    padding: 0 .625rem;
+    max-width: 75rem;
   }
-`
+`;
