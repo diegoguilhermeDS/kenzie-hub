@@ -15,12 +15,12 @@ const Select = ({ register }) => {
         colorSelect={valueSelect}
       >
         <option value="">Escolha um módulo</option>
-        <option value="m1">1° Módulo</option>
-        <option value="m2">2° Módulo</option>
-        <option value="m3">3° Módulo</option>
-        <option value="m4">4° Módulo</option>
-        <option value="m5">5° Módulo</option>
-        <option value="m6">6° Módulo</option>
+        <option value="1° módulo (introdução ao Frontend)">1° Módulo</option>
+        <option value="2° módulo (Frontend Avançado)">2° Módulo</option>
+        <option value="3° módulo (Frontend Avançado React)">3° Módulo</option>
+        <option value="4° módulo (Introdução ao Backend)">4° Módulo</option>
+        <option value="5° módulo (Backend intermediário)">5° Módulo</option>
+        <option value="6° módulo (Backend Avançado)">6° Módulo</option>
       </StyleSelect>
     </>
   );
