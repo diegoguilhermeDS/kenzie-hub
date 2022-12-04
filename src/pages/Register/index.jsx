@@ -4,10 +4,16 @@ import Logo from "../../components/Logo";
 import Form from "../../components/Form";
 import { StyledLink as Link } from "../../components/Link";
 import { StyleContainerLogo } from "./style";
+import { motion } from "framer-motion";
 
 const Register = () => {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <StyledContainerForm>
         <StyleContainerLogo>
           <Logo />
@@ -17,7 +23,7 @@ const Register = () => {
         </StyleContainerLogo>
         <Form type="register" />
       </StyledContainerForm>
-    </>
+    </motion.div>
   );
 };
 
