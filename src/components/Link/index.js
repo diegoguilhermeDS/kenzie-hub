@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledLink = styled(Link)`
   display: flex;
@@ -7,11 +7,33 @@ export const StyledLink = styled(Link)`
   align-items: center;
 
   padding: 0px 22px;
-  width: 100%;
+  ${({wt}) => {
+    if(wt === "1") {
+      return css`
+        width: 80px;
+      `
+    } else {
+      return css`
+        width: 100%;
+      `
+    }
+  }}
   height: 48px;
 
-  background-color: var(--color-grey-1);
-  border: 1.2182px solid var(--color-grey-1);
+  ${({bg}) => {
+    if(bg === "1") {
+      return css`
+        background-color: var(--color-grey-3);
+        border: 1.2182px solid var(--color-grey-3);
+      `
+    } else {
+      return css`
+        background-color: var(--color-grey-1);
+        border: 1.2182px solid var(--color-grey-1);
+      `
+    }
+  }}
+  
   border-radius: 4px;
 
   font-weight: 500;
