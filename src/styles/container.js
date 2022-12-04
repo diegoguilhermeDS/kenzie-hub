@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const StyledContainerForm = styled.main`
   display: flex;
@@ -8,7 +8,7 @@ export const StyledContainerForm = styled.main`
   gap: var(--gap-1);
 
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 
-  padding: 0 12px;
+  padding: 48px 12px;
 `

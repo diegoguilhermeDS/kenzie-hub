@@ -20,6 +20,10 @@ export const StyledForm = styled.form`
         text-align: center;
     }
 
+    small {
+        text-align: center;
+    }
+
     .containerInput {
         display: flex;
         flex-direction: column;
