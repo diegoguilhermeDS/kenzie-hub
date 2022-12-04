@@ -12,3 +12,13 @@ export const StyledContainerForm = styled.main`
 
   padding: 48px 12px;
 `
+
+export const StyledContainer = styled.div`
+  margin: 0 auto;
+  max-width: 355px;
+  width: 100%;
+  @media (min-width: 700px) {
+    padding: 0 10px;
+    max-width: 1200px;
+  }
+`
