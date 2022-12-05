@@ -5,7 +5,6 @@ import { StyledForm } from "./style";
 import Input from "../Input";
 import Button from "../Button";
 import { StyledLink as Link } from "../Link";
-import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import MessageError from "../Input/MessageError";
@@ -14,18 +13,11 @@ import { api } from "../../services/api";
 import { notify } from "../Toast";
 import { RegisterSchema } from "./schemaRegister";
 import Select from "../Select";
+import { LoginSchema } from "./schemaLogin";
 
 const Form = ({ type }) => {
   const [typeInput, setTypeInput] = useState("password");
   const [loading, setLoading] = useState(false);
-
-  const formSchema = yup.object().shape({
-    email: yup
-      .string()
-      .required("O campo e-mail é obrigatório")
-      .email("E-mail inválido"),
-    password: yup.string().required("O campo senha é obrigatório"),
-  });
 
   const {
     register,
@@ -33,7 +25,7 @@ const Form = ({ type }) => {
     formState: { errors, isDirty, isValid },
   } = useForm({
     mode: "onBlur",
-    resolver: yupResolver(type === "login" ? formSchema : RegisterSchema),
+    resolver: yupResolver(type === "login" ? LoginSchema : RegisterSchema),
   });
 
   const navigate = useNavigate();
