@@ -30,6 +30,7 @@ export const StyledForm = styled.form`
     gap: 1.0625rem;
 
     position: relative;
+    padding-bottom: 20px;
 
     label {
       font-size: 0.5625rem;
