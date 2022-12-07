@@ -1,19 +1,19 @@
 import React, { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { RegisterSchema } from "../../validations/schemaRegister";
+import { LoginSchema } from "../../validations/schemaLogin";
+import { StyledLink as Link } from "../Link";
+import { api } from "../../services/api";
+import Select from "../Select";
+import Input from "../Input";
+import MessageError from "../Input/MessageError";
+import Button from "../Button";
+import { notify } from "../Toast";
+import { StyledForm } from "./style";
 import { StyledText } from "../../styles/typography";
 import { FaEye, FaSpinner } from "react-icons/fa";
-import { StyledForm } from "./style";
-import Input from "../Input";
-import Button from "../Button";
-import { StyledLink as Link } from "../Link";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import MessageError from "../Input/MessageError";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
-import { notify } from "../Toast";
-import { RegisterSchema } from "./schemaRegister";
-import Select from "../Select";
-import { LoginSchema } from "./schemaLogin";
 
 const Form = ({ type }) => {
   const [typeInput, setTypeInput] = useState("password");
