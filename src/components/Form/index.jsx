@@ -1,31 +1,23 @@
 import React, { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { RegisterSchema } from "../../validations/schemaRegister";
+import { LoginSchema } from "../../validations/schemaLogin";
+import { StyledLink as Link } from "../Link";
+import { api } from "../../services/api";
+import Select from "../Select";
+import Input from "../Input";
+import MessageError from "../Input/MessageError";
+import Button from "../Button";
+import { notify } from "../Toast";
+import { StyledForm } from "./style";
 import { StyledText } from "../../styles/typography";
 import { FaEye, FaSpinner } from "react-icons/fa";
-import { StyledForm } from "./style";
-import Input from "../Input";
-import Button from "../Button";
-import { StyledLink as Link } from "../Link";
-import * as yup from "yup";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import MessageError from "../Input/MessageError";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../services/api";
-import { notify } from "../Toast";
-import { RegisterSchema } from "./schemaRegister";
-import Select from "../Select";
 
 const Form = ({ type }) => {
   const [typeInput, setTypeInput] = useState("password");
   const [loading, setLoading] = useState(false);
-
-  const formSchema = yup.object().shape({
-    email: yup
-      .string()
-      .required("O campo e-mail é obrigatório")
-      .email("E-mail inválido"),
-    password: yup.string().required("O campo senha é obrigatório"),
-  });
 
   const {
     register,
@@ -33,7 +25,7 @@ const Form = ({ type }) => {
     formState: { errors, isDirty, isValid },
   } = useForm({
     mode: "onBlur",
-    resolver: yupResolver(type === "login" ? formSchema : RegisterSchema),
+    resolver: yupResolver(type === "login" ? LoginSchema : RegisterSchema),
   });
 
   const navigate = useNavigate();
@@ -58,24 +50,22 @@ const Form = ({ type }) => {
 
   const onSubmitRegister = async (data) => {
     try {
-      delete data.ConfirmPassword
+      delete data.ConfirmPassword;
       setLoading(true);
       const response = await api.post("/users", data);
-      console.log(response)
+      console.log(response);
       if (response.status === 201) {
         notify("Cadastro feito com sucesso!", "sucess");
         setTimeout(() => {
           navigate("/login");
         }, 3500);
       }
-
     } catch (error) {
       if (error.response.status === 404) {
-        notify("Erro no servidor!");  
+        notify("Erro no servidor!");
       } else {
         notify("E-mail já existente");
       }
-      
     } finally {
       setLoading(false);
     }
@@ -228,10 +218,10 @@ const Form = ({ type }) => {
               <MessageError children={errors.contact.message} />
             )}
           </div>
-          <Select register={register}/>
+          <Select register={register} />
           {errors.course_module && (
-              <MessageError children={errors.course_module.message} />
-            )}
+            <MessageError children={errors.course_module.message} />
+          )}
           <Button
             children={!loading ? "Cadastrar" : <FaSpinner />}
             disabled={!isDirty || !isValid}

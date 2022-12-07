@@ -6,35 +6,35 @@ export const StyledLink = styled(Link)`
   justify-content: center;
   align-items: center;
 
-  padding: 0px 22px;
-  ${({wt}) => {
-    if(wt === "1") {
+  padding: 0rem 1.375rem;
+  ${({ wt }) => {
+    if (wt === "1") {
       return css`
-        width: 80px;
-      `
+        width: 5rem;
+      `;
     } else {
       return css`
         width: 100%;
-      `
+      `;
     }
   }}
-  height: 48px;
+  height: 3rem;
 
-  ${({bg}) => {
-    if(bg === "1") {
+  ${({ bg }) => {
+    if (bg === "1") {
       return css`
         background-color: var(--color-grey-3);
         border: 1.2182px solid var(--color-grey-3);
-      `
+      `;
     } else {
       return css`
         background-color: var(--color-grey-1);
         border: 1.2182px solid var(--color-grey-1);
-      `
+      `;
     }
   }}
-  
-  border-radius: 4px;
+
+  border-radius: .25rem;
 
   font-weight: 500;
   font-size: var(--font-size-2);

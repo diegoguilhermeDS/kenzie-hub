@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
-  height: 80px;
+  height: 5rem;
   display: flex;
   align-items: center;
 
@@ -17,11 +17,11 @@ export const StyledHeader = styled.header`
       justify-content: center;
       align-items: center;
 
-      padding: 0px 22px;
-      width: 80px;
-      height: 48px;
+      padding: 0rem 1.375rem;
+      width: 5rem;
+      height: 3rem;
 
-      border-radius: 4px;
+      border-radius: 0.25rem;
       background-color: var(--color-grey-3);
       border: 1.2182px solid var(--color-grey-3);
 
