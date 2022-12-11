@@ -1,34 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
-import { api } from "../../services/api";
 import { StyledContainer } from "../../styles/container";
 import { StyledText } from "../../styles/typography";
-import { StyledSectionInforUser, StyledSectionMessage } from "./style";
+import { StyledSectionInforUser, StyledSectionContext } from "./style";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import Button from "../../components/Button";
+import TechList from "../../components/TechList";
+import Modal from "../../components/Modal";
+import { TechContext } from "../../contexts/TechContext";
 
 const DashBoard = () => {
-  const [userCurrent, setUserCurrent] = useState("");
-
-  const token = JSON.parse(localStorage.getItem("@Token"));
-  const id = JSON.parse(localStorage.getItem("@UserId"));
-
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    } else {
-      async function getUser() {
-        const user = await api.get(`/users/${id}`);
-        setUserCurrent(user.data);
-      }
-
-      getUser();
-    }
-  }, [token, id]);
-
+  const { userCurrent } = useContext(UserContext);
+  const {showModal, typeModal, handleShowModal } = useContext(TechContext);
+  
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -55,24 +41,22 @@ const DashBoard = () => {
           </StyledContainer>
         </StyledSectionInforUser>
 
-        <StyledSectionMessage>
+        <StyledSectionContext>
           <StyledContainer className="containerMessageDeveloper">
-            <StyledText
-              tag="h1"
-              children={"Que pena! Estamos em desenvolvimento :("}
-              fontSize="1"
-              fontWeight={700}
-            />
-            <StyledText
-              tag="span"
-              children={
-                "Nossa aplicação está em desenvolvimento, em breve teremos novidades"
-              }
-              fontSize="2"
-            />
+            <div className="containerAddTechs">
+              <StyledText
+                tag="h2"
+                fontWeight={600}
+                fontSize="2"
+                children="Tecnologias"
+              />
+              <Button children="+" onclick={() => handleShowModal("add")} />
+            </div>
+            <TechList handle={handleShowModal}/>
           </StyledContainer>
-        </StyledSectionMessage>
+        </StyledSectionContext>
       </main>
+      {showModal && <Modal type={typeModal}/>}
     </motion.div>
   );
 };

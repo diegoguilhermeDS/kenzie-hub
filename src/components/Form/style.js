@@ -30,6 +30,7 @@ export const StyledForm = styled.form`
     gap: 1.0625rem;
 
     position: relative;
+    padding-bottom: 20px;
 
     label {
       font-size: 0.5625rem;
@@ -47,6 +48,11 @@ export const StyledForm = styled.form`
 
       svg > path {
         color: var(--color-grey-1);
+        transition: .5s ease;
+
+        &:hover {
+          fill: var(--color-grey-0);
+        }
       }
     }
   }

@@ -26,6 +26,8 @@ export const StyledButtonPrimary = styled.button`
   align-items: center;
   justify-content: center;
 
+  transition: .5s ease;
+
   &:hover {
     background-color: var(--color-primary-focus);
     border: 1.2182px solid var(--color-primary-focus);

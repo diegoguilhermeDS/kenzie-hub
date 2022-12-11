@@ -7,4 +7,7 @@ export const StyleMessageError = styled.small`
 
   display: flex;
   justify-content: flex-start;
+
+  position: absolute;
+  bottom: 0;
 `;
