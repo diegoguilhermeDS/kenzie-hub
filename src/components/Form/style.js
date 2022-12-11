@@ -48,6 +48,11 @@ export const StyledForm = styled.form`
 
       svg > path {
         color: var(--color-grey-1);
+        transition: .5s ease;
+
+        &:hover {
+          fill: var(--color-grey-0);
+        }
       }
     }
   }

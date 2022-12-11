@@ -16,7 +16,6 @@ const Header = () => {
     });
     setTimeout(() => {
       localStorage.removeItem("@Token");
-      localStorage.removeItem("@UserId");
       navegation("/login");
     }, 2000);
   };
