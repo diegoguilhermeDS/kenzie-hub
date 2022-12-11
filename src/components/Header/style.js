@@ -29,6 +29,8 @@ export const StyledHeader = styled.header`
       font-size: var(--font-size-2);
       color: #fff;
 
+      transition: .5s ease;
+
       &:hover {
         background-color: var(--color-grey-2);
         border: 1.2182px solid var(--color-grey-2);
