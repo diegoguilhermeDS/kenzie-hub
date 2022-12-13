@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import Form from "../../components/Form";
 import Logo from "../../components/Logo";
@@ -5,6 +6,7 @@ import { StyledContainerForm } from "../../styles/container";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 const Login = () => {
   const [loading, setLoading] = useState(true);
@@ -12,13 +14,27 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = JSON.parse(localStorage.getItem("@Token"));
+    async function redirectLogin() {
 
-    if (token) {
-      navigate("/dashboard")
+      const token = localStorage.getItem("@Token");
+      if (token) {
+        let status = ''
+        try {
+          const response = await api.get("/profile");
+          if(response.status === 200) {
+            navigate("/dashboard")
+          } 
+        } catch (error) {
+          console.log(error)
+        } 
+      }
+
+      setTimeout(() => {
+        setLoading(false)
+      }, 500)
     }
 
-    setLoading(false)
+    redirectLogin()
   }, [navigate]);
 
   if (loading) {

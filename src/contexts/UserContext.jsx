@@ -15,23 +15,20 @@ const Providers = ({ children }) => {
 
   useEffect(() => {
     async function loadUser() {
-      const token = JSON.parse(localStorage.getItem("@Token"));
+      const token = localStorage.getItem("@Token");
 
-      if (!token) {
-        setLoadingPage(false);
-        return;
+      if (token) {
+        try {
+          api.defaults.headers.common.authorization = `Bearer ${token}`;
+          const { data } = await api.get("/profile");
+          setUserCurrent(data);
+          setTechs(data.techs);
+        } catch (error) {
+          localStorage.removeItem("@Token");
+        }
       }
 
-      try {
-        api.defaults.headers.common.authorization = `Bearer ${token}`;
-        const { data } = await api.get("/profile");
-        setUserCurrent(data);
-        setTechs(data.techs);
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoadingPage(false);
-      }
+      setLoadingPage(false);
     }
 
     loadUser();
@@ -50,12 +47,10 @@ const Providers = ({ children }) => {
 
         setUserCurrent(user);
         setTechs(user.techs);
-        localStorage.setItem("@Token", JSON.stringify(token));
+        localStorage.setItem("@Token", token);
         api.defaults.headers.common.authorization = `Bearer ${token}`;
 
-        setTimeout(() => {
-          navigate("/dashboard");
-        }, 3500);
+        navigate("/dashboard");
       }
     } catch (err) {
       notify("E-mail ou Senha estão incorreto");
@@ -74,9 +69,7 @@ const Providers = ({ children }) => {
 
       if (response.status === 201) {
         notify("Cadastro feito com sucesso!", "sucess");
-        setTimeout(() => {
-          navigate("/login");
-        }, 3500);
+        navigate("/login");
       }
     } catch (error) {
       if (error.response.status === 404) {

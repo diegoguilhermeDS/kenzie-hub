@@ -14,10 +14,9 @@ const Header = () => {
       theme: "dark",
       autoClose: 2000,
     });
-    setTimeout(() => {
-      localStorage.removeItem("@Token");
-      navegation("/login");
-    }, 2000);
+
+    localStorage.removeItem("@Token");
+    navegation("/login");
   };
 
   return (
