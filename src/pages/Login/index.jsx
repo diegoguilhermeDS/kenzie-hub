@@ -20,6 +20,7 @@ const Login = () => {
       if (token) {
         try {
           const response = await api.get("/profile");
+          console.log(response)
           if(response.status === 200) {
             navigate("/dashboard")
           } 
