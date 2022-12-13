@@ -28,9 +28,8 @@ const Login = () => {
         } 
       }
 
-      setTimeout(() => {
-        setLoading(false)
-      }, 500)
+      setLoading(false)
+
     }
 
     redirectLogin()
