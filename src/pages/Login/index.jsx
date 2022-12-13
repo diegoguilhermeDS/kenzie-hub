@@ -18,7 +18,6 @@ const Login = () => {
 
       const token = localStorage.getItem("@Token");
       if (token) {
-        let status = ''
         try {
           const response = await api.get("/profile");
           if(response.status === 200) {
