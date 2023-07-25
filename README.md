@@ -20,7 +20,7 @@
   </a>
 </p>
 
-<div align="center"><img width="1000" src=""></div>
+<div align="center"><img width="1000" src="https://github.com/diegoguilhermeDS/kenzie-hub/blob/d45a9af34f778d7bb262e21f67e9e86af5b6bde8/public/kenzie-hub.png"></div>
 
 <h4 align="center"> 
 	🚧  Kenzie Hub - Concluído 🚀 🚧
@@ -29,7 +29,6 @@
 <p align="center">
  <a href="#-sobre-o-projeto">Sobre</a> •
  <a href="#-funcionalidades">Funcionalidades</a> •
- <a href="#-layout">Layout</a> • 
  <a href="#-como-executar-o-projeto">Como executar</a> • 
  <a href="#-tecnologias">Tecnologias</a> • 
  <a href="#-autor">Autor</a> • 
